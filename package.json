@@ -1,0 +1,41 @@
+{
+  "name": "web-jumper-vue2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@moefe/vue-aplayer": "^2.0.0-beta.5",
+    "@types/lodash-es": "^4.17.8",
+    "autobind-decorator": "^2.4.0",
+    "compression-webpack-plugin": "^10.0.0",
+    "core-js": "^3.8.3",
+    "element-ui": "^2.15.13",
+    "eventemitter2": "^6.4.9",
+    "exceljs": "^4.3.0",
+    "lodash-es": "^4.17.21",
+    "process": "^0.11.10",
+    "readable-web-to-node-stream": "^3.0.2",
+    "tsparticles": "^2.11.0",
+    "tsparticles-engine": "^2.11.0",
+    "vue": "2.6.14",
+    "vue-happy-scroll": "^2.1.1",
+    "vue-router": "^3.5.1",
+    "vue2-particles": "^2.11.0",
+    "vuex": "^3.6.2",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.0/xlsx-0.20.0.tgz"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "less": "^4.0.0",
+    "less-loader": "^8.0.0",
+    "typescript": "~4.5.5",
+    "vue-template-compiler": "2.6.14"
+  }
+}
