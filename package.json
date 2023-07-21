@@ -9,6 +9,7 @@
   "dependencies": {
     "@moefe/vue-aplayer": "^2.0.0-beta.5",
     "@types/lodash-es": "^4.17.8",
+    "@types/plotly.js-dist-min": "^2.3.1",
     "autobind-decorator": "^2.4.0",
     "compression-webpack-plugin": "^10.0.0",
     "core-js": "^3.8.3",
@@ -16,6 +17,7 @@
     "eventemitter2": "^6.4.9",
     "exceljs": "^4.3.0",
     "lodash-es": "^4.17.21",
+    "plotly.js-dist-min": "^2.24.3",
     "process": "^0.11.10",
     "readable-web-to-node-stream": "^3.0.2",
     "tsparticles": "^2.11.0",

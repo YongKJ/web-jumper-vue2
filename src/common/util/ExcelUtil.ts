@@ -85,7 +85,10 @@ export class ExcelUtil {
                 ["Sheet0", GenUtil.arrayToMapList(recData)]
             ]);
         }
-        let workbook = typeof excel === "string" ? XLSX.readFile(excel) : XLSX.read(await excel.arrayBuffer());
+        let workbook = typeof excel === "string" ? XLSX.readFile(excel) : XLSX.read(
+            excel.name.endsWith(".csv") ? await excel.text() : await excel.arrayBuffer(),
+            excel.name.endsWith(".csv") ? {type: "string"} : undefined
+        );
         let mapSheet = new Map<string, Array<Map<string, string | number>>>();
         for (let sheetName of workbook.SheetNames) {
             let sheet = workbook.Sheets[sheetName];
