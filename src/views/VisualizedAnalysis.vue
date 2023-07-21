@@ -138,13 +138,11 @@ import Vue from "vue";
 import FreezeExcel from "@/components/FreezeExcel.vue";
 import WallpaperPlus from "@/components/WallpaperPlus.vue";
 import {VisualizedAnalysisService} from "@/common/service/VisualizedAnalysisService";
-import {WallpaperPlusImage} from "@/common/pojo/po/WallpaperPlusImage";
 
 export default Vue.extend({
   name: "VisualizedAnalysis",
   data() {
     return {
-      WallpaperPlusImage,
       visualizedAnalysisService: new VisualizedAnalysisService(this)
     }
   },
