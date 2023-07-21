@@ -8,6 +8,7 @@ import {DemoTest} from "@/common/pojo/po/DemoTest";
 import {StreamFile} from "@/common/pojo/dto/StreamFile";
 import {ExcelUtil} from "@/common/util/ExcelUtil";
 import autobind from "autobind-decorator";
+import {GenUtil} from "@/common/util/GenUtil";
 
 export class DemoTestService extends CommonService<DemoTestService> {
 
@@ -54,6 +55,7 @@ export class DemoTestService extends CommonService<DemoTestService> {
     }
 
     public initData(): void {
+        GenUtil.timer(() => this.getRef("aplayer").play(), 300);
         this.getService(WallpaperPlusService).on("test", msg => {
             this.info(msg);
             LogUtil.loggerLine(Log.of("DemoTestService", "testEvent", "msg", msg));

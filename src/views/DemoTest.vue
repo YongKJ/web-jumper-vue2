@@ -74,7 +74,7 @@
         :lrcType="0"
         ref="aplayer"
         :mini="false"
-        :autoplay="true"
+        :autoplay="false"
         :listFolded="true"
         :audio="demoTestService.audios"
         v-if="demoTestService.musicFlag"
