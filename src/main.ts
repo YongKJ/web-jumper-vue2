@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-import APlayer from '@moefe/vue-aplayer';
+import APlayer from '@moefe/vue-aplayer-latest';
 Vue.use(<any>APlayer, {
   defaultCover: 'https://github.com/u3u.png',
   productionTip: false,

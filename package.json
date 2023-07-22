@@ -7,7 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@moefe/vue-aplayer": "^2.0.0-beta.5",
+    "@moefe/vue-aplayer-latest": "^2.0.0-beta.5",
     "@types/lodash-es": "^4.17.8",
     "@types/plotly.js-dist-min": "^2.3.1",
     "autobind-decorator": "^2.4.0",
