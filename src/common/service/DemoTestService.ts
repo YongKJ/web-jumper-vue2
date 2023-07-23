@@ -3,12 +3,12 @@ import Vue from "vue";
 import {Class} from "@/common/pojo/enum/Class";
 import {LogUtil} from "@/common/util/LogUtil";
 import {Log} from "@/common/pojo/dto/Log";
-import {WallpaperPlusService} from "@/common/service/WallpaperPlusService";
 import {DemoTest} from "@/common/pojo/po/DemoTest";
 import {StreamFile} from "@/common/pojo/dto/StreamFile";
 import {ExcelUtil} from "@/common/util/ExcelUtil";
 import autobind from "autobind-decorator";
 import {GenUtil} from "@/common/util/GenUtil";
+import {WallpaperMiniService} from "@/common/service/WallpaperMiniService";
 
 export class DemoTestService extends CommonService<DemoTestService> {
 
@@ -56,14 +56,14 @@ export class DemoTestService extends CommonService<DemoTestService> {
 
     public initData(): void {
         GenUtil.timer(() => this.getRef("aplayer").play(), 300);
-        this.getService(WallpaperPlusService).on("test", msg => {
+        this.getService(WallpaperMiniService).on("test", msg => {
             this.info(msg);
             LogUtil.loggerLine(Log.of("DemoTestService", "testEvent", "msg", msg));
         });
         // LogUtil.loggerLine(Log.of("DemoTestService", "initData", "message", this.vue.$message));
-        LogUtil.loggerLine(Log.of("DemoTestService", "initData", "excelFile", this.excelFile));
+        // LogUtil.loggerLine(Log.of("DemoTestService", "initData", "excelFile", this.excelFile));
         LogUtil.loggerLine(Log.of("DemoTestService", "initData", "vue", this.vue));
-        LogUtil.loggerLine(Log.of("DemoTestService", "initData", "WallpaperPlusService", this.getService(WallpaperPlusService)));
+        LogUtil.loggerLine(Log.of("DemoTestService", "initData", "WallpaperMiniService", this.getService(WallpaperMiniService)));
     }
 
     public changeFiles(file: StreamFile, fileList: Array<StreamFile>): void {
@@ -107,7 +107,7 @@ export class DemoTestService extends CommonService<DemoTestService> {
         this._password = "Hello world!";
         // this.service.userName = "Hello world!";
         // this.service.password = "Hello world!";
-        this.getService(WallpaperPlusService).emit("test", "Hello world！");
+        this.getService(WallpaperMiniService).emit("test", "Hello world！");
     }
 
     @autobind

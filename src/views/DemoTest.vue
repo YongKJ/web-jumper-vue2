@@ -1,5 +1,5 @@
 <template>
-  <wallpaper-plus color="208,233,242">
+  <wallpaper-mini color="208,233,242">
     <el-button
         style="position: relative"
         @click="demoTestService.handleButtonClick()">
@@ -79,15 +79,13 @@
         :audio="demoTestService.audios"
         v-if="demoTestService.musicFlag"
     />
-  </wallpaper-plus>
+  </wallpaper-mini>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import WallpaperPlus from "@/components/WallpaperPlus.vue";
+import WallpaperMini from "@/components/WallpaperMini.vue";
 import {DemoTestService} from "@/common/service/DemoTestService";
-import {LogUtil} from "@/common/util/LogUtil";
-import {Log} from "@/common/pojo/dto/Log";
 
 export default Vue.extend({
   name: "DemoTest",
@@ -100,7 +98,7 @@ export default Vue.extend({
     this.demoTestService.initData();
   },
   components: {
-    WallpaperPlus
+    WallpaperMini
   }
 });
 </script>
@@ -125,15 +123,15 @@ export default Vue.extend({
 }
 
 .login-container {
-  border-radius: 15px;
-  background-clip: padding-box;
-  margin: 90px auto;
   width: 330px;
-  padding: 35px 35px 15px 35px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid #eaeaea;
-  box-shadow: 0 0 25px rgba(155, 89, 182, .5);
+  margin: 90px auto;
   position: relative;
+  border-radius: 15px;
+  border: 1px solid #eaeaea;
+  padding: 35px 35px 15px 35px;
+  background-clip: padding-box;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 25px rgba(155, 89, 182, .5);
 }
 
 .login_title {

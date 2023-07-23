@@ -17,6 +17,7 @@
     "eventemitter2": "^6.4.9",
     "exceljs": "^4.3.0",
     "lodash-es": "^4.17.21",
+    "particles.js": "^2.0.0",
     "plotly.js-dist-min": "^2.24.3",
     "process": "^0.11.10",
     "readable-web-to-node-stream": "^3.0.2",

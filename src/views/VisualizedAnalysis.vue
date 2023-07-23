@@ -1,5 +1,5 @@
 <template>
-  <wallpaper-plus color="208,233,242" :bg-img="visualizedAnalysisService.bgImg">
+  <wallpaper-mini color="208,233,242" :bg-img="visualizedAnalysisService.bgImg">
     <div id="target"></div>
 
     <el-form class="login-container" label-position="left" label-width="0px">
@@ -130,13 +130,13 @@
     </el-form>
 
     <freeze-excel/>
-  </wallpaper-plus>
+  </wallpaper-mini>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import FreezeExcel from "@/components/FreezeExcel.vue";
-import WallpaperPlus from "@/components/WallpaperPlus.vue";
+import WallpaperMini from "@/components/WallpaperMini.vue";
 import {VisualizedAnalysisService} from "@/common/service/VisualizedAnalysisService";
 
 export default Vue.extend({
@@ -147,7 +147,7 @@ export default Vue.extend({
     }
   },
   components: {
-    WallpaperPlus,
+    WallpaperMini,
     FreezeExcel
   }
 });
