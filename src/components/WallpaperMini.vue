@@ -52,30 +52,19 @@ export default Vue.extend({
       type: String,
       default: "152,118,170"
     },
-    speed: {
-      type: Number,
-      default: 3  // 6
-    },
-    number: {
-      type: Number,
-      default: 100 // 50
-    },
-    linked: {
-      type: Boolean,
-      default: false // true
-    },
-    mode: {
+    type: {
       type: String,
-      default: "repulse" // push
+      default: "grid"
     },
-    direction: {
-      type: String,
-      default: "bottom" // none
-    }
   },
   data() {
     return {
-      wallpaperMiniService: new WallpaperMiniService(this)
+      linked: this.type !== "snow",
+      speed: this.type === "snow" ? 3 : 6,
+      number: this.type === "snow" ? 100 : 50,
+      mode: this.type === "snow" ? "repulse" : "push",
+      direction: this.type === "snow" ? "bottom" : "none",
+      wallpaperMiniService: new WallpaperMiniService(this),
     }
   },
   mounted() {

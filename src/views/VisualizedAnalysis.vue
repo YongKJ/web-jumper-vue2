@@ -1,5 +1,5 @@
 <template>
-  <wallpaper-mini color="208,233,242" :bg-img="visualizedAnalysisService.bgImg">
+  <wallpaper-mini color="208,233,242" :bg-img="visualizedAnalysisService.bgImg" type="snow">
     <div id="target"></div>
 
     <el-form class="login-container" label-position="left" label-width="0px">

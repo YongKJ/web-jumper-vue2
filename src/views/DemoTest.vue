@@ -1,5 +1,5 @@
 <template>
-  <wallpaper-mini color="208,233,242">
+  <wallpaper-mini color="208,233,242" type="snow">
     <el-button
         style="position: relative"
         @click="demoTestService.handleButtonClick()">

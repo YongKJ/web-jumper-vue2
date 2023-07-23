@@ -5,6 +5,7 @@ import Vue from "vue";
 import {LogUtil} from "@/common/util/LogUtil";
 import {Log} from "@/common/pojo/dto/Log";
 import {Message} from "element-ui";
+import {debounce} from "lodash-es";
 
 export abstract class CommonService<U> extends EventEmitter2 implements BaseService<U> {
 
@@ -45,6 +46,57 @@ export abstract class CommonService<U> extends EventEmitter2 implements BaseServ
         let serviceName = this.getServiceName((<Record<string, any>>clazz).class);
         let vue = this.getVue(serviceName, index || 0);
         return (<Record<string, any>>vue)[serviceName];
+    }
+
+    public screenResizeWatch(): void {
+        window.addEventListener("resize", debounce(async () => {
+            let screenHeight = document.documentElement.clientHeight + "px";
+            let tempScreenHeight = (document.documentElement.clientHeight + 20) + "px";
+            LogUtil.loggerLine(Log.of("WallpaperPlusService", "initData", "screenHeight", screenHeight));
+            do {
+                await this.setStyleHeight();
+                await GenUtil.sleep(333);
+                LogUtil.loggerLine(Log.of("WallpaperPlusService", "initData", "styleHeight", CommonService.styleHeight()));
+            } while (tempScreenHeight !== CommonService.styleHeight());
+        }, 333));
+    }
+
+    private async getVerticalStrip(): Promise<Record<string, any>> {
+        let scroll = undefined;
+        do {
+            scroll = this.getRef("scroll");
+            await GenUtil.sleep(10);
+        } while (typeof scroll === "undefined");
+        if (typeof scroll === "undefined") return {};
+
+        let children = (<Record<string, any>>scroll).$children;
+        for (let child of children) {
+            let className = <string>child.$el.className;
+            if (!className.includes("vertical")) continue;
+            return child;
+        }
+        return {};
+    }
+
+    private async setStyleHeight(): Promise<void> {
+        let screenHeight = document.documentElement.clientHeight + "px";
+        let scroll = <HTMLDivElement>document.getElementsByClassName("happy-scroll")[0];
+        scroll.setAttribute("style", "height: " + screenHeight);
+
+        let tempScreenWidth = (document.documentElement.clientWidth + 20) + "px";
+        let tempScreenHeight = (document.documentElement.clientHeight + 20) + "px";
+        const tempScroll = <HTMLDivElement>document.getElementsByClassName("happy-scroll-container")[0];
+        tempScroll.setAttribute("style", "width: " + tempScreenWidth + "; height: " + tempScreenHeight);
+
+        const strip = await this.getVerticalStrip();
+        scroll = <HTMLDivElement>document.getElementsByClassName("happy-scroll")[0];
+        const slotEle = <HTMLDivElement>document.getElementById("content-details");
+        strip.computeStrip(slotEle.scrollHeight, scroll.clientHeight);
+    }
+
+    private static styleHeight(): string {
+        const scroll = <HTMLDivElement>document.getElementsByClassName("happy-scroll-container")[0];
+        return scroll.style.height;
     }
 
     public success(msg: string) {

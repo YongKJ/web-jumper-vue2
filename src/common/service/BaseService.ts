@@ -26,6 +26,8 @@ export interface BaseService<U> {
 
     getRef(name: string): any;
 
+    screenResizeWatch(): void;
+
     success(msg: string): void;
 
     warning(msg: string): void;
