@@ -61,7 +61,7 @@ export abstract class CommonService<U> extends EventEmitter2 implements BaseServ
         }, 333));
     }
 
-    private async getVerticalStrip(): Promise<Record<string, any>> {
+    private async getStripByType(type: string): Promise<Record<string, any>> {
         let scroll = undefined;
         do {
             scroll = this.getRef("scroll");
@@ -72,7 +72,7 @@ export abstract class CommonService<U> extends EventEmitter2 implements BaseServ
         let children = (<Record<string, any>>scroll).$children;
         for (let child of children) {
             let className = <string>child.$el.className;
-            if (!className.includes("vertical")) continue;
+            if (!className.includes(type)) continue;
             return child;
         }
         return {};
@@ -88,10 +88,12 @@ export abstract class CommonService<U> extends EventEmitter2 implements BaseServ
         const tempScroll = <HTMLDivElement>document.getElementsByClassName("happy-scroll-container")[0];
         tempScroll.setAttribute("style", "width: " + tempScreenWidth + "; height: " + tempScreenHeight);
 
-        const strip = await this.getVerticalStrip();
         scroll = <HTMLDivElement>document.getElementsByClassName("happy-scroll")[0];
         const slotEle = <HTMLDivElement>document.getElementById("content-details");
-        strip.computeStrip(slotEle.scrollHeight, scroll.clientHeight);
+        const verticalStrip = await this.getStripByType("vertical");
+        verticalStrip.computeStrip(slotEle.scrollHeight, scroll.clientHeight);
+        const horizontalStrip = await this.getStripByType("horizontal");
+        horizontalStrip.computeStrip(slotEle.scrollWidth, scroll.clientWidth);
     }
 
     private static styleHeight(): string {
