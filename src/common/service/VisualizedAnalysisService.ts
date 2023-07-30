@@ -107,10 +107,10 @@ export class VisualizedAnalysisService extends CommonService<VisualizedAnalysisS
             url: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3SgWQBUAxEGgWwA8BHOgEQCESAxgwAOACQDyMACY0MABgBShYBinT8DAKwBFNMICWNAIyEAdiTkZNUQsPixhKQnIBaWEhhcQhYsy4Ay2M7AcgBKYAAK2gC80UA",
         }, {
             lrc: "",
-            artist: "jonny",
-            name: "为国写华章",
+            artist: "Piano Cover",
+            name: "Imagine",
             cover: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3ADwEUA7AIQC0BZARgElrgAmdwgBM0aYIQC28FIRzj8Aa0H4ohUYXph5tLIQDMwcexAAFWgF4zQA",
-            url: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3SgWQBUAxEGgWwA8BHOgEQClKAJi17wwdQrwCKWAEIA7MBjYAHMCEIQBdANYBGfPgYQwhbQE86WDACYB+ATSiMAzHQAaAYwCcABUkBefyA",
+            url: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3SgWQBUAxEGgWwA8BHOgEQCFKAJiwYAJMDAEYASgEYAWjOAsADAFZJabjQl1CWBgHt8IAFIBnAYQAOdAIr4AnISkAmNgaXKALAvIBPAHk6Ewh8cjRKOhhlNgFlGQBmAAU6ZQBeIA",
         });
     }
 
