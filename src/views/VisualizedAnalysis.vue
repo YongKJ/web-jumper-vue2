@@ -129,6 +129,15 @@
       </el-form-item>
     </el-form>
 
+    <aplayer
+        fixed
+        :lrcType="0"
+        ref="aplayer"
+        :mini="false"
+        :autoplay="false"
+        :listFolded="true"
+        :audio="visualizedAnalysisService.audios"
+    />
     <freeze-excel/>
   </wallpaper-mini>
 </template>
@@ -145,6 +154,9 @@ export default Vue.extend({
     return {
       visualizedAnalysisService: new VisualizedAnalysisService(this)
     }
+  },
+  mounted() {
+    this.visualizedAnalysisService.initData();
   },
   components: {
     WallpaperMini,

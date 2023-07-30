@@ -30,6 +30,7 @@ export class VisualizedAnalysisService extends CommonService<VisualizedAnalysisS
     private _sheetNames: Array<string>;
     private readonly bgImgs: Array<any>;
     private plotly: PlotlyHTMLElement | null;
+    private _audios: Array<Record<string, any>>;
     private tempExcelData: Array<Map<string, any>>;
     private readonly coords: Array<Record<string, any>>;
     private readonly excelData: Array<Map<string, any>>;
@@ -86,14 +87,40 @@ export class VisualizedAnalysisService extends CommonService<VisualizedAnalysisS
             WallpaperPlusImage.BACKGROUND_FOURTEEN,
             WallpaperPlusImage.BACKGROUND_FIFTEEN,
         );
+        this._audios = Array.of({
+            lrc: "",
+            artist: "Jose Feliciano Vs Boney M",
+            name: "Feliz Navidad",
+            cover: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3ADwEUA7AIQC0BZARgElrgAmdwgBM0aYIQC28FIRzj8Aa0H4ohUYXph5tLIQDMwcexAAFWgF4zQA",
+            url: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3SgWQBUAxEGgWwA8BHOgEQCFoYAKQASUbgC1BAJTqEA9uJgBGAM4QlaABoZNYaYQAOK4AGsAJirAm0DMPhQmo+NgUJmp4pePhRhYAJZSAAye+HSCaiyCAKxmAExmGFAYwACewG4kvgDGAMxSAHaSMgyU4hhguZ6CPjBszEqCcnTkYADCdCxSwHQFvOKIGIIAMqBgAPJQ5Db47IFxnBlmMGb4MQCKaGYgg4LcoACSSrCEdOsm0TRQjLl0mtkAnAAK6wC8r0A",
+        }, {
+            lrc: "",
+            artist: "爵士轻音乐",
+            name: "Feliz Navidad",
+            cover: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3ADwEUA7AIQC0BZARgElrgAmdwgBM0aYIQC28FIRzj8Aa0H4ohUYXph5tLIQDMwcexAAFWgF4zQA",
+            url: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3SgWQBUAxEGgWwA8BHOgYXjRIAaAJTSEATAAc2AaTEBrAKwATEvHgAtAHY1c2QrgCKABgaaMLAIz4AxmIbAoYpRigZgAT2CEVEBhIAiYMIgQuRGAJxAA",
+        }, {
+            lrc: "",
+            artist: "Dido",
+            name: "Thank You",
+            cover: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3ADwEUA7AIQC0BZARgElrgAmdwgBM0aYIQC28FIRzj8Aa0H4ohUYXph5tLIQDMwcexAAFWgF4zQA",
+            url: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3SgWQBUAxEGgWwA8BHOgEQCESAxgwAOACQDyMACY0MABgBShYBinT8DAKwBFNMICWNAIyEAdiTkZNUQsPixhKQnIBaWEhhcQhYsy4Ay2M7AcgBKYAAK2gC80UA",
+        }, {
+            lrc: "",
+            artist: "jonny",
+            name: "为国写华章",
+            cover: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3ADwEUA7AIQC0BZARgElrgAmdwgBM0aYIQC28FIRzj8Aa0H4ohUYXph5tLIQDMwcexAAFWgF4zQA",
+            url: "https://alpine.yongkj.cn/path/view?path=JoKwcghgRg4mAuBTGALANgVQF5oE4HUA1FAZQgFEB3SgWQBUAxEGgWwA8BHOgEQClKAJi17wwdQrwCKWAEIA7MBjYAHMCEIQBdANYBGfPgYQwhbQE86WDACYB+ATSiMAzHQAaAYwCcABUkBefyA",
+        });
+    }
+
+    public initData(): void {
+        this.changeBgImgIndex();
+        GenUtil.timer(() => this.getRef("aplayer").play(), 1000);
     }
 
     public changeBgImgIndex(): void {
-        this.bgImgIndex += 1;
-        if (this.bgImgIndex > 14) {
-            this.bgImgIndex = 0;
-        }
-        this._bgImg = this.bgImgs[this.bgImgIndex];
+        this._bgImg = this.bgImgs[GenUtil.randomNum(0, 14)];
     }
 
     @autobind
@@ -325,6 +352,10 @@ export class VisualizedAnalysisService extends CommonService<VisualizedAnalysisS
         let num = this._percentage / 25;
         this.coord = this.coords[num - 1];
         this.reLayout();
+    }
+
+    get audios(): Array<Record<string, any>> {
+        return this._audios;
     }
 
     get bgImg(): any {

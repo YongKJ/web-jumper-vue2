@@ -8,6 +8,17 @@ export class GenUtil {
     private constructor() {
     }
 
+    public static randomNum(minNum: number, maxNum: number): number {
+        switch (arguments.length) {
+            case 1:
+                return parseInt(String(Math.random() * minNum + 1), 10);
+            case 2:
+                return parseInt(String(Math.random() * (maxNum - minNum + 1) + minNum), 10);
+            default:
+                return 0;
+        }
+    }
+
     public static async initBitrate(rtcDirec: string, streams: Array<StreamInfo>, transceiver?: RTCRtpTransceiver): Promise<void> {
         if (typeof transceiver === "undefined") return;
         let stream = <StreamInfo>streams.find(stream => stream.rtcDirec === rtcDirec);

@@ -45,7 +45,6 @@ export class DemoTestService extends CommonService<DemoTestService> {
             cover: "https://m.yongkj.cn/audio_default.png",
             url: "https://file.yongkj.cn/fileSystem/admin/Music/%E6%9C%AC%E5%85%AE%20-%20%E8%AE%A9%E5%AF%82%E5%AF%9E%E5%88%AB%E8%B5%B0%20%20mqms2%20.mp3",
         }, {
-
             lrc: "",
             artist: "本兮&单小源",
             name: "你在看孤独的风景",
