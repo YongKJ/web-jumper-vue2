@@ -1,5 +1,5 @@
 import {Log} from "@/common/pojo/dto/Log";
-import {Global} from "@/common/conifg/Global";
+import {Global} from "@/common/config/Global";
 
 export class LogUtil {
 

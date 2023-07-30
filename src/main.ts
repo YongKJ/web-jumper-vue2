@@ -21,7 +21,7 @@ import Particles from "vue2-particles";
 Vue.use(Particles);
 
 import "element-ui/lib/theme-chalk/index.css";
-import {ElementUI} from "@/common/conifg/ElementUI";
+import {ElementUI} from "@/common/config/ElementUI";
 
 Vue.use(ElementUI);
 
